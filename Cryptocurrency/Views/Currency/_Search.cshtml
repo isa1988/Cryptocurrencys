@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Cryptocurrency.Models.Currency>
+@{
+    var grid = new WebGrid(source: Model, rowsPerPage: 50);
+}
+
+@grid.GetHtml(
+    htmlAttributes: new
+    {
+        id = "grid",
+        @class = "table table-bordered table-striped table-condensed table-hover"
+    },
+    emptyRowCellValue: "No Records Found",
+    headerStyle: "grid-header",
+
+    columns: grid.Columns(
+        grid.Column(columnName: "Name", header: "Наименование"),
+        grid.Column(columnName: "Symbol", header: "Символ"),
+        grid.Column(header: "Логотип",
+                    format: @<img src=@item.FullCmcRank />, canSort: false),
+
+        grid.Column(columnName: "Price", header: "Текущая цена в USD"),
+        grid.Column(columnName: "PercentChangeOneHour", header: "Насколько цена изменилась за последний час (%)"),
+        grid.Column(columnName: "PercentChangeTwentyFourHour", header: "Насколько цена изменилась за последние 24 часа (%)"),
+        grid.Column(columnName: "MarketCap", header: "Капитализации в USD"),
+        grid.Column(columnName: "LastUpdated", header: "Время обновления данных")
+                        )
+            )
+

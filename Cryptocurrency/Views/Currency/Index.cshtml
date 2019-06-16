@@ -1,0 +1,71 @@
+﻿@model Cryptocurrency.Models.Currencys
+
+@using (Html.BeginForm("Index", "Currency"))
+{
+    <button type="button" class="collapsible">Фильтр</button>
+<div class="form-horizontal content">
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchItem.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SearchItem.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchItem.PriceFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(model => model.SearchItem.IsPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.SearchItem.PriceFrom, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.PriceFrom, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SearchItem.PriceTo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.PriceTo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchItem.PercentChangeOneHourFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(model => model.SearchItem.IsPercentChangeOneHour, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.SearchItem.PercentChangeOneHourFrom, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.PercentChangeOneHourFrom, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SearchItem.PercentChangeOneHourTo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.PercentChangeOneHourTo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchItem.PercentChangeTwentyFourHourFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(model => model.SearchItem.IsPercentChangeTwentyFourHour, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.SearchItem.PercentChangeTwentyFourHourFrom, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.PercentChangeTwentyFourHourFrom, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SearchItem.PercentChangeTwentyFourHourTo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.PercentChangeTwentyFourHourTo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchItem.MarketCapFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(model => model.SearchItem.IsMarketCap, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.SearchItem.MarketCapFrom, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.MarketCapFrom, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SearchItem.MarketCapTo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.MarketCapTo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchItem.LastUpdatedFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(model => model.SearchItem.IsLastUpdated, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.SearchItem.LastUpdatedFrom, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.LastUpdatedFrom, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SearchItem.LastUpdatedTo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchItem.LastUpdatedTo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group col-md-offset-2 col-md-10">
+        <input type="submit" value="Поиск" class="btn btn-success" />
+    </div>
+
+</div>
+}
+@Html.Partial("_Search", Model.SearchList)
