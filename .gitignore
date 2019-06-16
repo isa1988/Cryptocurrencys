@@ -20,7 +20,7 @@
 x64/
 x86/
 bld/
-[Bb]in/
+[Bb]in/*
 [Oo]bj/
 [Ll]og/
 
@@ -326,3 +326,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Insert Cryptocurrency/bin/roslyn
+**/bin/*
+!**/roslyn/
